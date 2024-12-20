@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Synced Audio Player</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="player-container">
+      <h2>Synced Audio Player</h2>
+
+      <div id="nowPlaying" class="now-playing">
+        <div>No song selected</div>
+      </div>
+
+      <audio id="audioPlayer" preload="auto"></audio>
+
+      <div class="controls">
+        <button id="playBtn" disabled>Play</button>
+        <button id="pauseBtn" disabled>Pause</button>
+        <button id="downloadSubmit" onclick="ask_link()">Download</button>
+      </div>
+
+      <div id="timeDisplay">00:00</div>
+      <input
+        type="range"
+        id="seekBar"
+        min="0"
+        max="100"
+        value="0"
+        style="width: 80%"
+      />
+      <div id="syncStatus"></div>
+
+      <h3>Song Library</h3>
+      <div id="songList" class="song-list">
+      </div>
+    </div>
+    <script src="app.js"></script>
+  </body>
+</html>

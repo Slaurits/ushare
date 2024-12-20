@@ -1,0 +1,92 @@
+body {
+  font-family: Arial, sans-serif;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center;
+}
+
+.player-container {
+  background: #f5f5f5;
+  padding: 20px;
+  border-radius: 8px;
+  margin-top: 20px;
+}
+
+.controls {
+  margin: 20px 0;
+}
+
+button {
+  padding: 10px 20px;
+  margin: 0 5px;
+  cursor: pointer;
+  background: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+}
+
+button:disabled {
+  background: #cccccc;
+  cursor: not-allowed;
+}
+
+#timeDisplay {
+  margin: 10px 0;
+  font-size: 1.2em;
+}
+
+#syncStatus {
+  color: #666;
+  font-size: 0.9em;
+  margin-top: 10px;
+}
+
+.song-list {
+  max-height: 300px;
+  overflow-y: auto;
+  margin: 20px 0;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background: white;
+}
+
+.song-item {
+  padding: 10px;
+  border-bottom: 1px solid #eee;
+  cursor: pointer;
+  text-align: left;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.song-item:hover {
+  background: #f0f0f0;
+}
+
+.song-item.active {
+  background: #e3f2e3;
+}
+
+.song-info {
+  flex: 1;
+  margin-right: 10px;
+}
+
+.song-title {
+  font-weight: bold;
+}
+
+.song-artist {
+  font-size: 0.9em;
+  color: #666;
+}
+
+.now-playing {
+  background: #f0f0f0;
+  padding: 10px;
+  border-radius: 4px;
+  margin-bottom: 10px;
+}
