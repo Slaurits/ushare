@@ -47,10 +47,14 @@ function updateNowPlaying() {
           `;
         playBtn.disabled = false;
         pauseBtn.disabled = false;
+
+        document.title = `${currentSong.title} | mushare`;
     } else {
         nowPlaying.innerHTML = "<div>No song selected</div>";
         playBtn.disabled = true;
         pauseBtn.disabled = true;
+
+        document.title = "mushare";
     }
 }
 
