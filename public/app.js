@@ -6,7 +6,6 @@ const seekBar = document.getElementById("seekBar");
 const timeDisplay = document.getElementById("timeDisplay");
 const syncStatus = document.getElementById("syncStatus");
 const songList = document.getElementById("songList");
-const nowPlaying = document.getElementById("nowPlaying");
 
 let isSync = false;
 let currentSong = null;
@@ -41,19 +40,8 @@ function updateSongList(songs) {
 
 function updateNowPlaying() {
     if (currentSong) {
-        nowPlaying.innerHTML = `
-              <strong>${currentSong.title}</strong>
-              <div>${currentSong.artist}</div>
-          `;
-        playBtn.disabled = false;
-        pauseBtn.disabled = false;
-
         document.title = `${currentSong.title} | mushare`;
     } else {
-        nowPlaying.innerHTML = "<div>No song selected</div>";
-        playBtn.disabled = true;
-        pauseBtn.disabled = true;
-
         document.title = "mushare";
     }
 }
