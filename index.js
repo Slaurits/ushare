@@ -4,6 +4,7 @@ const WebSocket = require('ws');
 const fs = require('fs');
 const path = require('path');
 const { Worker } = require('worker_threads');
+const ytdl = require('ytdl-core');
 
 // Create a Timer worker for precise timing
 const timerWorker = new Worker(`
@@ -105,8 +106,8 @@ app.get('/api/songs/:id/stream', (req, res) => {
 app.post('/api/download', async (req, res) => {
   const { url } = req.body;
   const ytDlp = path.join(__dirname, 'yt-dlp_x86.exe');
-  const id = url.split('v=')[1];
-  const audioPath = path.join(SONGS_DIR, `${id}.mp3`);
+  const title = await ytdl.getBasicInfo(url).then(info => info.videoDetails.title);
+  const audioPath = path.join(SONGS_DIR, `${title}.mp3`);
 
   const ytDlpProcess = require('child_process').spawn(ytDlp, ['--extract-audio', '--audio-format', 'mp3', '--audio-quality', '0', '--output', audioPath, url]);
 
