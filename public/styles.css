@@ -4,12 +4,12 @@ body {
   margin: 0 auto;
   padding: 0;
   text-align: center;
-  background: #121212;
-  color: #e0e0e0;
+  background: #ffffff;
+  color: #000000;
 }
 
 .now-playing {
-  background: #1e88e5;
+  background: #1976d2;
   color: #ffffff;
   padding: 15px;
   border-radius: 0;
@@ -24,11 +24,11 @@ body {
 }
 
 .player-container {
-  background: #1c1c1c;
+  background: #f5f5f5;
   padding: 20px;
   border-radius: 8px;
   margin-top: 80px; /* Adjust for the fixed banner */
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
 .controls {
@@ -39,7 +39,7 @@ button {
   padding: 10px 20px;
   margin: 0 5px;
   cursor: pointer;
-  background: #1e88e5;
+  background: #1976d2;
   color: white;
   border: none;
   border-radius: 4px;
@@ -51,7 +51,7 @@ button:hover {
 }
 
 button:disabled {
-  background: #666666;
+  background: #cccccc;
   cursor: not-allowed;
 }
 
@@ -61,7 +61,7 @@ button:disabled {
 }
 
 #syncStatus {
-  color: #888;
+  color: #666;
   font-size: 0.9em;
   margin-top: 10px;
 }
@@ -70,14 +70,14 @@ button:disabled {
   max-height: 300px;
   overflow-y: auto;
   margin: 20px 0;
-  border: 1px solid #333;
+  border: 1px solid #ccc;
   border-radius: 4px;
-  background: #1c1c1c;
+  background: #f5f5f5;
 }
 
 .song-item {
   padding: 10px;
-  border-bottom: 1px solid #333;
+  border-bottom: 1px solid #ccc;
   cursor: pointer;
   text-align: left;
   display: flex;
@@ -87,11 +87,11 @@ button:disabled {
 }
 
 .song-item:hover {
-  background: #333333;
+  background: #eeeeee;
 }
 
 .song-item.active {
-  background: #1e88e5;
+  background: #1976d2;
   color: #ffffff;
 }
 
@@ -106,6 +106,43 @@ button:disabled {
 
 .song-artist {
   font-size: 0.9em;
-  color: #aaaaaa;
+  color: #666666;
 }
 
+/* Dark Theme Styles */
+@media (prefers-color-scheme: dark) {
+  body {
+    background: #121212;
+    color: #e0e0e0;
+  }
+
+  .now-playing {
+    background: #1e88e5;
+  }
+
+  .player-container {
+    background: #1c1c1c;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+  }
+
+  .song-list {
+    border: 1px solid #333;
+    background: #1c1c1c;
+  }
+
+  .song-item {
+    border-bottom: 1px solid #333;
+  }
+
+  .song-item:hover {
+    background: #333333;
+  }
+
+  #syncStatus {
+    color: #888;
+  }
+
+  button:disabled {
+    background: #666666;
+  }
+}
