@@ -50,11 +50,6 @@ button:hover {
   background: #1565c0;
 }
 
-button:disabled {
-  background: #cccccc;
-  cursor: not-allowed;
-}
-
 #timeDisplay {
   margin: 10px 0;
   font-size: 1.2em;
@@ -140,9 +135,5 @@ button:disabled {
 
   #syncStatus {
     color: #888;
-  }
-
-  button:disabled {
-    background: #666666;
   }
 }
