@@ -2,7 +2,7 @@ const ws = new WebSocket(`ws://${window.location.host}`);
 const audio = document.getElementById("audioPlayer");
 const playBtn = document.getElementById("playBtn");
 const pauseBtn = document.getElementById("pauseBtn");
-const seekBar = document.getElementById("seekBar");
+//const seekBar = document.getElementById("seekBar");
 const timeDisplay = document.getElementById("timeDisplay");
 const syncStatus = document.getElementById("syncStatus");
 const songList = document.getElementById("songList");
@@ -126,7 +126,7 @@ pauseBtn.onclick = () => {
     }
 };
 
-seekBar.onchange = () => {
+/*seekBar.onchange = () => {
     const time = (seekBar.value / 100) * audio.duration;
     if (!isSync) {
         ws.send(
@@ -140,11 +140,11 @@ seekBar.onchange = () => {
 
 audio.onloadedmetadata = () => {
     seekBar.max = audio.duration;
-};
+};*/
 
 audio.ontimeupdate = () => {
     if (!isSync) {
-        seekBar.value = (audio.currentTime / audio.duration) * 100;
+        //seekBar.value = (audio.currentTime / audio.duration) * 100;
         updateTimeDisplay(audio.currentTime);
     }
 };
@@ -189,3 +189,9 @@ function ask_link() {
         downloadSong(youtubeUrl);
     }
 }
+
+const volumeSlider = document.getElementById("volumeSlider");
+volumeSlider.addEventListener("input", (event) => {
+    audio.volume = event.target.value;
+    console.log(event.target.value);
+});
