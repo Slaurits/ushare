@@ -40,9 +40,9 @@ function updateSongList(songs) {
 
 function updateNowPlaying() {
     if (currentSong) {
-        document.title = `${currentSong.title} | mushare`;
+        document.title = `${currentSong.title} | μshare`;
     } else {
-        document.title = "mushare";
+        document.title = "μshare";
     }
 }
 

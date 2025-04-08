@@ -60,7 +60,7 @@ function loadSongLibrary() {
         songLibrary.set(id, {
           id,
           title: metadata.title || file.replace('.mp3', ''),
-          artist: metadata.artist || 'Unknown',
+          artist: metadata.artist || 'Adolf Hitler',
           duration: metadata.duration || 0,
           filename: file,
           size: stats.size
