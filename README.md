@@ -7,6 +7,7 @@ originally meant to be mushare (music share) but I realized μshare looks cooler
 * [ffmpeg globally](https://ffmpeg.org/download.html)
 
 ## Running
+Set your browser inside of ```index.js```
 Run ```node .``` and go to http://localhost:3000
 
 ## Warning
