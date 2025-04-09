@@ -105,11 +105,34 @@ app.get('/api/songs/:id/stream', (req, res) => {
 
 app.post('/api/download', async (req, res) => {
   const { url } = req.body;
-  const ytDlp = path.join(__dirname, 'yt-dlp_x86.exe');
-  const title = await ytdl.getBasicInfo(url).then(info => info.videoDetails.title);
-  const audioPath = path.join(SONGS_DIR, `${title}.mp3`);
+//  const spotDL = path.join(__dirname, 'spotdl-4.2.11-win32.exe');
+const title = await ytdl.getBasicInfo(url).then(info => info.videoDetails.title);
+  const audioPath = path.join(SONGS_DIR);
 
-  const ytDlpProcess = require('child_process').spawn(ytDlp, ['--extract-audio', '--audio-format', 'mp3', '--audio-quality', '0', '--output', audioPath, url]);
+// Check if url is a spotify link
+if (url.includes('spotify.com')) {
+  console.log('Using spotDL for Spotify download');
+  const spotDL = path.join(__dirname, 'spotdl-4.2.11-win32.exe');
+  const spotDLProcess = require('child_process').spawn(spotDL, [url, '--bitrate', '192k', '--output', audioPath]);
+
+  spotDLProcess.stdout.on('data', (data) => {
+    console.log(`stdout: ${data}`);
+  });
+
+  spotDLProcess.stderr.on('data', (data) => {
+    console.error(`stderr: ${data}`);
+  });
+
+  spotDLProcess.on('close', (code) => {
+    console.log(`spotDL process exited with code ${code}`);
+  });
+
+  res.json({ message: 'Spotify Download started' });
+} else {
+  // Use yt-dlp for other links
+  console.log('Using yt-dlp for download');
+  const ytDlp = path.join(__dirname, 'yt-dlp_x86.exe');
+  const ytDlpProcess = require('child_process').spawn(ytDlp, ['--extract-audio', '--audio-format', 'mp3', '--audio-quality', '0', '--cookies', 'cookies.txt', '--output', path.join(audioPath, '%(title)s.%(ext)s'), url]);
 
   ytDlpProcess.stdout.on('data', (data) => {
     console.log(`stdout: ${data}`);
@@ -123,7 +146,8 @@ app.post('/api/download', async (req, res) => {
     console.log(`yt-dlp process exited with code ${code}`);
   });
 
-  res.json({ message: 'Download started' });
+  res.json({ message: 'yt-dlp Download started' });
+}
 });
 
 // Handle precise timing updates from worker

@@ -183,7 +183,7 @@ async function downloadSong(youtubeUrl) {
 };
 
 function ask_link() {
-    let youtubeUrl = window.prompt('Enter the YouTube URL of the song to download:');
+    let youtubeUrl = window.prompt('Enter the YouTube/Spotify URL of the song to download:');
 
     if (youtubeUrl) {
         downloadSong(youtubeUrl);
