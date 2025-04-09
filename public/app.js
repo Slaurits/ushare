@@ -40,9 +40,9 @@ function updateSongList(songs) {
 
 function updateNowPlaying() {
     if (currentSong) {
-        document.title = `${currentSong.title} | mushare`;
+        document.title = `${currentSong.title} | μshare`;
     } else {
-        document.title = "mushare";
+        document.title = "μshare";
     }
 }
 
@@ -183,7 +183,7 @@ async function downloadSong(youtubeUrl) {
 };
 
 function ask_link() {
-    let youtubeUrl = window.prompt('Enter the YouTube URL of the song to download:');
+    let youtubeUrl = window.prompt('Enter the YouTube/Spotify URL of the song to download:');
 
     if (youtubeUrl) {
         downloadSong(youtubeUrl);
