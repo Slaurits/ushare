@@ -7,9 +7,9 @@ originally meant to be mushare (music share) but I realized μshare looks cooler
 * [ffmpeg globally](https://ffmpeg.org/download.html)
 
 ## Running
-Run ```npm i``` to install the neccesary packages
-Set your browser inside of ```.env.example``` and rename it to ```.env```
-Run ```node .``` and go to http://localhost:3000
+1. Run ```npm i``` to install the neccesary packages
+2. Set your browser inside of ```.env.example``` and rename it to ```.env```
+3. Run ```node .``` and go to http://localhost:3000
 
 ## Warning
 This does allow arbitrary file downloads on the server, so use with caution. I am not responsible for any accidents resulting of this.
