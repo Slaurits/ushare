@@ -10,10 +10,9 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
-    "@distube/ytdl-core": "^4.15.8",
     "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
     "express": "^4.21.2",
-    "ws": "^8.18.0",
-    "ytdl-core": "^4.11.5"
+    "ws": "^8.18.0"
   }
 }

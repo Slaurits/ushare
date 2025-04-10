@@ -4,7 +4,7 @@ const WebSocket = require('ws');
 const fs = require('fs');
 const path = require('path');
 const { Worker } = require('worker_threads');
-const browser = 'firefox'; // ADD .ENV FILE FOR USER BROWSER, OR AUTODETECT
+require('dotenv').config();
 
 // Create a Timer worker for precise timing
 const timerWorker = new Worker(`
@@ -130,7 +130,7 @@ if (url.includes('spotify.com')) {
   // Use yt-dlp for other links
   console.log('Using yt-dlp for download');
   const ytDlp = path.join(__dirname, 'yt-dlp_x86.exe');
-  const ytDlpProcess = require('child_process').spawn(ytDlp, ['--extract-audio', '--audio-format', 'mp3', '--audio-quality', '0', '--cookies-from-browser', browser, '--output', path.join(audioPath, '%(title)s.%(ext)s'), url]);
+  const ytDlpProcess = require('child_process').spawn(ytDlp, ['--extract-audio', '--audio-format', 'mp3', '--audio-quality', '0', '--cookies-from-browser', process.env.BROWSER, '--output', path.join(audioPath, '%(title)s.%(ext)s'), url]);
 
   ytDlpProcess.stdout.on('data', (data) => {
     console.log(`stdout: ${data}`);
@@ -302,7 +302,8 @@ fs.watch(SONGS_DIR, (eventType, filename) => {
   }
 });
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT;
 server.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
+  console.log(`Selected browser is ${process.env.BROWSER}`);
 });
